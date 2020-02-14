@@ -6,7 +6,7 @@ import java.util.Random;
 
 public class MP3Driver {
 
-    public static Playlist shuffle(final Playlist P) {
+    public static Playlist shuffle( Playlist P) {
 
         Playlist p = new Playlist();
         Random rand = new Random();
@@ -24,17 +24,21 @@ public class MP3Driver {
             
             if(rand.nextDouble() < 0.15) {
 
-                final ArrayList<Song> sameArtist = new ArrayList<Song>();
+                ArrayList<Song> sameArtist = new ArrayList<Song>();
 
                 for(int j = 0; j < P.getSize(); j++)
                     if(P.getSong(j).getArtist().equals(lastArtist))
                         sameArtist.add(P.getSong(j));
 
-                num = rand.nextInt(sameArtist.size());
+                if(sameArtist.size() > 0) {
 
-                p.addSong(sameArtist.get(num));
-                lastArtist = sameArtist.get(num).getArtist();
-                P.removeSong(sameArtist.get(num));
+                    num = rand.nextInt(sameArtist.size());
+
+                    p.addSong(sameArtist.get(num));
+                    lastArtist = sameArtist.get(num).getArtist();
+                    P.removeSong(sameArtist.get(num));
+
+                }
 
             }
 
@@ -54,19 +58,19 @@ public class MP3Driver {
 
     }
 
-    public static void printList(final Playlist p) {
+    public static void printList(Playlist p) {
 
         System.out.println(p.toString());
 
     }
 
-    public static void printList(final SongLib s) {
+    public static void printList(SongLib s) {
 
         System.out.println(s.toString());
 
     }
 
-    public static void main(final String[] args) {
+    public static void main(String[] args) {
 
         SongLib mySongLib = new SongLib();
         Playlist allRock = new Playlist(), allJazz = new Playlist(), allClassical = new Playlist();
