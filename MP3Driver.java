@@ -8,8 +8,8 @@ public class MP3Driver {
 
     public static Playlist shuffle(final Playlist P) {
 
-        final Playlist p = new Playlist();
-        final Random rand = new Random();
+        Playlist p = new Playlist();
+        Random rand = new Random();
         int num = rand.nextInt(P.getSize());
         String lastArtist = "";
 
@@ -19,7 +19,7 @@ public class MP3Driver {
 
         for(int i = 0; i < P.getSize(); i++) {
 
-            if(P.getSize() == 0)
+            if(P.getSize() < 0)
                 break;
             
             if(rand.nextDouble() < 0.15) {
@@ -68,7 +68,7 @@ public class MP3Driver {
 
     public static void main(final String[] args) {
 
-        final SongLib mySongLib = new SongLib();
+        SongLib mySongLib = new SongLib();
         Playlist allRock = new Playlist(), allJazz = new Playlist(), allClassical = new Playlist();
 
         for(int i = 0; i < mySongLib.getSize(); i++) {
