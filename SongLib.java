@@ -101,7 +101,7 @@ public class SongLib {
         songLib.add( new Song("Love you Madly", "Hines", "jazz"));
         songLib.add( new Song("Warm Valley", "Hines", "jazz"));
         songLib.add( new Song("Caravan", "Hines", "jazz"));
-        songLib.add( new Song("Time Control ", "Hiromi", "jazz"));
+        songLib.add( new Song("Time Control ", "Hiromi", "jazz")); //there are duplicates
         songLib.add( new Song("Time Flies", "Hiromi", "jazz"));
         songLib.add( new Song("Times Up", "Hiromi", "jazz"));
 
