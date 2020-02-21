@@ -33,16 +33,13 @@ public class Song {
         String s = "";
 
         s += name;
-        
-        int extraSpacesForName = 50 - name.length();
-        int extraSpacesForArtist = 50 - artist.length();
 
-        for(int i = 0; i < extraSpacesForName; i++)
+        for(int i = 0; i < 50 - name.length(); i++)
             s += " ";
 
         s += artist;
 
-        for(int i = 0; i < extraSpacesForArtist; i++)
+        for(int i = 0; i < 50 - artist.length(); i++)
             s += " ";
 
         s += genre;
