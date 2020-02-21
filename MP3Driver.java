@@ -6,8 +6,9 @@ import java.util.Random;
 
 public class MP3Driver {
 
-    public static Playlist shuffle( Playlist P) {
+    public static Playlist shuffle(Playlist P) {
 
+        int originalSize = P.getSize();
         Playlist p = new Playlist();
         Random rand = new Random();
         int num = rand.nextInt(P.getSize());
@@ -17,9 +18,9 @@ public class MP3Driver {
         lastArtist = P.getSong(num).getArtist();
         P.removeSong(P.getSong(num));
 
-        for(int i = 0; i < P.getSize(); i++) {
+        for(int i = 0; i < originalSize; i++) {
 
-            if(P.getSize() < 0)
+            if(P.getSize() < 1)
                 break;
             
             if(rand.nextDouble() < 0.15) {
@@ -37,6 +38,16 @@ public class MP3Driver {
                     p.addSong(sameArtist.get(num));
                     lastArtist = sameArtist.get(num).getArtist();
                     P.removeSong(sameArtist.get(num));
+
+                }
+
+                else {
+
+                    num = rand.nextInt(P.getSize());
+
+                    p.addSong(P.getSong(num));
+                    lastArtist = P.getSong(num).getArtist();
+                    P.removeSong(P.getSong(num));
 
                 }
 
@@ -77,17 +88,20 @@ public class MP3Driver {
 
         for(int i = 0; i < mySongLib.getSize(); i++) {
 
-            if(mySongLib.getSong(i).getGenre().equals("rock"))
+            if(mySongLib.getSong(i).getGenre().equalsIgnoreCase("rock"))
                 allRock.addSong(mySongLib.getSong(i));
 
-            else if(mySongLib.getSong(i).getGenre().equals("jazz"))
+            else if(mySongLib.getSong(i).getGenre().equalsIgnoreCase("jazz"))
                 allJazz.addSong(mySongLib.getSong(i));
 
-            else if(mySongLib.getSong(i).getGenre().equals("classical"))
+            else if(mySongLib.getSong(i).getGenre().equalsIgnoreCase("classical"))
                 allClassical.addSong(mySongLib.getSong(i));
 
         }
 
+        System.out.println();
+        System.out.println();
+        System.out.println();
         System.out.println("All Rock Playlist:\n");
         printList(allRock);
         System.out.println("All Jazz Playlist:\n");
