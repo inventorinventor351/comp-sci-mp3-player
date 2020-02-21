@@ -124,7 +124,7 @@ public class SongLib {
         String s = "";
 
         for(int i = 0; i < songLib.size(); i++)
-            s += songLib.get(i).toString() + "\n";
+            s += (i + 1) + (((i + 1) < 10) ? ".  " : ". ") + songLib.get(i).toString() + "\n";
 
         return s;
 

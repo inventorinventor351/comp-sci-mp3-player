@@ -30,7 +30,24 @@ public class Song {
 
     public String toString() {
 
-        return name + "     " + artist + "     " + genre;
+        String s = "";
+
+        s += name;
+        
+        int extraSpacesForName = 50 - name.length();
+        int extraSpacesForArtist = 50 - artist.length();
+
+        for(int i = 0; i < extraSpacesForName; i++)
+            s += " ";
+
+        s += artist;
+
+        for(int i = 0; i < extraSpacesForArtist; i++)
+            s += " ";
+
+        s += genre;
+
+        return s;
 
     }
 

@@ -27,7 +27,7 @@ public class Playlist {
         String s = "";
 
         for(int i = 0; i < playlist.size(); i++)
-            s += playlist.get(i).toString() + "\n";
+            s += (i + 1) + (((i + 1) < 10) ? ".  " : ". ") + playlist.get(i).toString() + "\n";
 
         return s;
 
